@@ -11,9 +11,14 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class AppComponent implements OnDestroy {
   response: string = ''
+  isClicked: boolean = false;
 
   handleResponseChange(newResponse: string) {
     this.response = newResponse;
+  }
+
+  handleSubmitClicked(isClicked: boolean) {
+    this.isClicked = isClicked;
   }
 
   constructor(){}

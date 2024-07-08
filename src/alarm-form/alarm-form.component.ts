@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {takeUntil} from "rxjs/operators";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Subject, Subscription} from "rxjs";
@@ -15,7 +15,8 @@ export class AlarmFormComponent implements OnInit {
   posts: any[] | undefined;
   private destroy$: Subject<void> = new Subject<void>();
   private subscription: Subscription | undefined;
-  @Output() responseChange = new EventEmitter<string>(); // declare an output property
+  @Output() responseChange = new EventEmitter<string>();
+  @Output() submitClicked = new EventEmitter<boolean>();
 
 
   constructor(
@@ -36,6 +37,7 @@ export class AlarmFormComponent implements OnInit {
 
   onSubmit() {
     this.fetchData(this.alarmForm.value);
+    this.submitClicked.emit(true);
   }
 
   fetchData(params: any) {
@@ -48,7 +50,8 @@ export class AlarmFormComponent implements OnInit {
           this.posts = data;
           console.log('Data received:', this.posts);
           this.response = JSON.stringify(this.posts);
-          this.responseChange.emit(this.response); // emit the new response
+          this.responseChange.emit(this.response);
+          this.submitClicked.emit(false);// emit the new response
         },
         error => {
           console.error('Error fetching data:', error);

@@ -5,7 +5,11 @@
       <input type="text" id="alarmName" formControlName="alarmName" class="form-control">
 
       <label for="region" class="form-label">Region:</label>
-      <input type="text" id="region" formControlName="region" class="form-control">
+      <select id="region" formControlName="region" class="form-control">
+        <option value="dev" class="mb-1">dev</option>
+        <option value="test" class="mb-1">test</option>
+        <option value="staging" class="mb-1">staging</option>
+      </select>
 
       <input type="submit" value="Submit" class="btn btn-primary mt-3">
     </form>

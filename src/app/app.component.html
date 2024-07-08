@@ -1,21 +1,29 @@
 <main class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <img class=logo src="../assets/nice-web-logo.jpg" alt=""/>
+      <img class="logo" src="../assets/nice-web-logo.jpg" alt=""/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Layout 1 -->
+      <div class="row">
+        <div class="col-md-12">
+          <app-alarm-form (responseChange)="handleResponseChange($event)"
+                          (submitClicked)="handleSubmitClicked($event)"
+          ></app-alarm-form>
+        </div>
       </div>
     </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
+      <!-- Layout 2 -->
       <div class="row">
-        <div class="col-md-6">
-          <app-alarm-form (responseChange)="handleResponseChange($event)"></app-alarm-form>
-        </div>
-        <div class="col-md-6">
-          <app-results-output [response]="response"></app-results-output>
+        <div class="col-md-12">
+          <app-results-output [response]="response"
+                              [submitClicked]="isClicked"
+          ></app-results-output>
         </div>
       </div>
     </div>
   </div>
 </main>
-
-
