@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <form [formGroup]="alarmForm" (ngSubmit)="onSubmit()" class="form-group">
+      <label for="alarmName" class="form-label">Alarm Name:</label>
+      <input type="text" id="alarmName" formControlName="alarmName" class="form-control">
+
+      <label for="region" class="form-label">Region:</label>
+      <input type="text" id="region" formControlName="region" class="form-control">
+
+      <input type="submit" value="Submit" class="btn btn-primary mt-3">
+    </form>
+  </div>
+</div>
