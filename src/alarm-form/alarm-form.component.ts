@@ -15,6 +15,7 @@ export class AlarmFormComponent implements OnInit {
   posts: any[] | undefined;
   private destroy$: Subject<void> = new Subject<void>();
   private subscription: Subscription | undefined;
+  isSubmitting: boolean = false;
   @Output() responseChange = new EventEmitter<string>();
   @Output() submitClicked = new EventEmitter<boolean>();
 
@@ -37,6 +38,7 @@ export class AlarmFormComponent implements OnInit {
 
   onSubmit() {
     this.fetchData(this.alarmForm.value);
+    this.isSubmitting = true;
     this.submitClicked.emit(true);
   }
 
@@ -51,6 +53,7 @@ export class AlarmFormComponent implements OnInit {
           console.log('Data received:', this.posts);
           this.response = JSON.stringify(this.posts);
           this.responseChange.emit(this.response);
+          this.isSubmitting = false;
           this.submitClicked.emit(false);// emit the new response
         },
         error => {
