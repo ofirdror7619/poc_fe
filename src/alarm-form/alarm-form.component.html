@@ -11,6 +11,9 @@
         <option value="staging" class="mb-1">staging</option>
       </select>
 
+      <label for="date" class="form-label">Date:</label>
+      <input type="date" id="date" formControlName="date" class="form-control">
+
       <input type="submit" value="Submit" class="btn btn-primary mt-3" [disabled]="isSubmitting">
     </form>
   </div>

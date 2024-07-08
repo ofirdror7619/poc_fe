@@ -9,7 +9,7 @@
 
 <!-- Table -->
 <ng-template #content>
-  <ng-container *ngIf="responseData?.segments">
+  <ng-container *ngIf="responseData?.result">
     <div class="scrollable-section mx-auto">
     <table class="table p-3">
       <thead>
@@ -19,9 +19,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let segment of responseData.segments; index as i">
+        <tr *ngFor="let results of responseData.result; index as i">
           <th scope="row">{{i + 1}}</th>
-          <td>{{segment}}</td>
+          <td>{{results}}</td>
         </tr>
       </tbody>
     </table>

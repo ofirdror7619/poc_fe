@@ -26,7 +26,8 @@ export class AlarmFormComponent implements OnInit {
   ) {
     this.alarmForm = this.fb.group({
       alarmName: [''],
-      region: ['']
+      region: [''],
+      date: [''],
     });
   }
 
