@@ -10,45 +10,15 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
-  myForm: FormGroup;
-  posts: any[] | undefined;
-  private destroy$: Subject<void> = new Subject<void>();
-  private subscription: Subscription | undefined;
+  response: string = ''
 
-  constructor(
-    private fb: FormBuilder,
-    private dataService: DataService
-  ) {
-    this.myForm = this.fb.group({
-      agent: [''],
-      region: ['']
-    });
+  handleResponseChange(newResponse: string) {
+    this.response = newResponse;
   }
 
-  ngOnDestroy() {
-    // Unsubscribe from all subscriptions
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+  constructor(){}
 
-  onSubmit() {
-    this.fetchData(this.myForm.value);
-  }
-
-  fetchData(params: any) {
-    this.subscription = this.dataService.getRequest(params)
-      .pipe(
-        takeUntil(this.destroy$)
-      )
-      .subscribe(
-        (data: any) => {
-          this.posts = data;
-          console.log('Data received:', this.posts);
-        },
-        error => {
-          console.error('Error fetching data:', error);
-          // Handle error as needed
-        }
-      );
+  ngOnDestroy(): void {
+    // TODO document why this method 'ngOnDestroy' is empty
   }
 }
