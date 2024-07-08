@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlarmFormComponent } from '../alarm-form/alarm-form.component';
 import { ResultsOutputComponent } from '../results-output/results-output.component';
 import {RouterOutlet} from "@angular/router";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {RouterOutlet} from "@angular/router";
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterOutlet
+    RouterOutlet,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

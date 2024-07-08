@@ -2,7 +2,9 @@
   <div class="col-md-4">
     <form [formGroup]="alarmForm" (ngSubmit)="onSubmit()" class="form-group">
       <label for="alarmName" class="form-label">Alarm Name:</label>
-      <input type="text" id="alarmName" formControlName="alarmName" class="form-control">
+      <select id="alarmName" formControlName="alarmName" class="form-control">
+        <option *ngFor="let alarmName of alarmNames" [value]="alarmName" class="mb-1">{{alarmName}}</option>
+      </select>
 
       <label for="region" class="form-label">Region:</label>
       <select id="region" formControlName="region" class="form-control">

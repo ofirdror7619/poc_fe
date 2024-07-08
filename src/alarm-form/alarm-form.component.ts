@@ -16,6 +16,7 @@ export class AlarmFormComponent implements OnInit {
   private destroy$: Subject<void> = new Subject<void>();
   private subscription: Subscription | undefined;
   isSubmitting: boolean = false;
+  alarmNames = ['metadata-producer-without-media-files', 'metadata-producer-osLogin-not-found'];
   @Output() responseChange = new EventEmitter<string>();
   @Output() submitClicked = new EventEmitter<boolean>();
 
