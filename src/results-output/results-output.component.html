@@ -9,17 +9,17 @@
 
 <!-- Table -->
 <ng-template #content>
-  <ng-container *ngIf="responseData?.result">
+  <ng-container *ngIf="responseData?.result?.values">
     <div class="scrollable-section mx-auto">
     <table class="table p-3">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Invalid Segments</th>
+          <th scope="col">{{responseData.result.title}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let results of responseData.result; index as i">
+        <tr *ngFor="let results of responseData.result.values; index as i">
           <th scope="row">{{i + 1}}</th>
           <td>{{results}}</td>
         </tr>
